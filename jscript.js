@@ -6,6 +6,11 @@ let computerScore = 0;
 const choices = ["rock", "paper", "scissors"];
 const winConditions = [2, 0, 1];
 
+//let rockBtn = document.querySelector("#rock") 
+
+
+
+//functions
 function getComputerChoice() {
     return Math.floor(Math.random() * 3);
 }
@@ -56,5 +61,3 @@ function playGame() {
         console.log("COMPUTER WINS!");
     }
 }
-
-playGame();

@@ -10,6 +10,11 @@ const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
 
+const userChoiceLabel = document.querySelector("#userChoiceLabel");
+const computerChoiceLabel = document.querySelector("#computerChoiceLabel");
+const outcomeLabel = document.querySelector("#outcomeLabel");
+const scoreLabel = document.querySelector("#scoreLabel");
+
 rockBtn.addEventListener("click", () => playRound(rockBtn));
 paperBtn.addEventListener("click", () => playRound(paperBtn));
 scissorsBtn.addEventListener("click", () => playRound(scissorsBtn));
@@ -35,22 +40,24 @@ function playRound(btn) {
     let userChoice = getUserChoice(btn);
     let computerChoice = getComputerChoice();
 
+    userChoiceLabel.textContent = `You pick: ${choices[userChoice]}`;
+    computerChoiceLabel.textContent = `Computer picks: ${choices[computerChoice]}`;
+
     if (userChoice === computerChoice) {
-        console.log(`Computer picks: ${choices[computerChoice]}`);
-        console.log("Draw")
+        outcomeLabel.textContent = "Draw";
     }
     else if (winConditions[userChoice] === computerChoice) {
         userScore++;
-        console.log(`Computer picks: ${choices[computerChoice]}`);
-        console.log("User wins");
+        outcomeLabel.textContent = "User wins";
     }
     else {
         computerScore++;
-        console.log(`Computer picks: ${choices[computerChoice]}`);
-        console.log("Computer wins");
+        outcomeLabel.textContent = "Computer wins";
     }  
-    console.log(`User: ${userScore}\tComputer: ${computerScore}`);
+   scoreLabel.textContent = `User: ${userScore}\tComputer: ${computerScore}`;
 }
+
+
 
 function playGame() {
     for (let i = 0; i <5; i++) {

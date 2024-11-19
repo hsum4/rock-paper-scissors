@@ -6,6 +6,7 @@ let computerScore = 0;
 const choices = ["rock", "paper", "scissors"];
 const winConditions = [2, 0, 1];
 
+//selectors for html elements
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
@@ -15,6 +16,7 @@ const computerChoiceLabel = document.querySelector("#computerChoiceLabel");
 const outcomeLabel = document.querySelector("#outcomeLabel");
 const scoreLabel = document.querySelector("#scoreLabel");
 
+//event listeners for buttons
 rockBtn.addEventListener("click", () => playRound(rockBtn));
 paperBtn.addEventListener("click", () => playRound(paperBtn));
 scissorsBtn.addEventListener("click", () => playRound(scissorsBtn));
@@ -56,8 +58,6 @@ function playRound(btn) {
     }  
    scoreLabel.textContent = `User: ${userScore}\tComputer: ${computerScore}`;
 }
-
-
 
 function playGame() {
     for (let i = 0; i <5; i++) {

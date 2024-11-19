@@ -6,8 +6,13 @@ let computerScore = 0;
 const choices = ["rock", "paper", "scissors"];
 const winConditions = [2, 0, 1];
 
-//let rockBtn = document.querySelector("#rock") 
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
 
+rockBtn.addEventListener("click", () => playRound(rockBtn));
+paperBtn.addEventListener("click", () => playRound(paperBtn));
+scissorsBtn.addEventListener("click", () => playRound(scissorsBtn));
 
 
 //functions
@@ -15,8 +20,8 @@ function getComputerChoice() {
     return Math.floor(Math.random() * 3);
 }
 
-function getUserChoice() {
-    let choice = prompt("Choose Rock, Paper, or Scissors!").toLowerCase();
+function getUserChoice(btn) {
+    let choice = btn.value;
     if (choices.includes(choice)) {
         return choices.indexOf(choice);
     }
@@ -26,8 +31,8 @@ function getUserChoice() {
     }
 }
 
-function playRound() {
-    let userChoice = getUserChoice();
+function playRound(btn) {
+    let userChoice = getUserChoice(btn);
     let computerChoice = getComputerChoice();
 
     if (userChoice === computerChoice) {
